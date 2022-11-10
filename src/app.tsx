@@ -428,24 +428,19 @@ function Field({
                     case "equal":
                         return (
                             <option key={methodType} value="equal">
-                                一致
+                                と一致
                             </option>
                         );
                     case "match":
                         return (
                             <option key={methodType} value="match">
-                                正規表現とマッチ
+                                の正規表現とマッチ
                             </option>
                         );
                 }
             })}
         </select>
     );
-    const methodJoshiMap: Record<Method["type"], string> = {
-        equal: "と",
-        match: "の",
-    };
-    const methodJoshi = methodJoshiMap[method.type];
 
     const onMethodValueChange = useCallback<
         React.ChangeEventHandler<HTMLInputElement>
@@ -469,10 +464,7 @@ function Field({
         <p>
             <>
                 {fieldSelect}が{methodValueInput}
-                <>
-                    {methodJoshi}
-                    {methodSelect}
-                </>
+                <>{methodSelect}</>
                 <>
                     {insertAfterButton}
                     {removeButton}
